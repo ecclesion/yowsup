@@ -32,16 +32,13 @@ class WARegRequest(WARequest):
         :param code:
         :type code: str
         """
-        super(WARegRequest,self).__init__(config)
-
-        if config.id is None:
-            raise ValueError("config.id is not set.")
+        super(WARegRequest, self).__init__(config)
 
         self.addParam("code", code)
 
         self.url = "v.whatsapp.net/v2/register"
 
         self.pvars = ["status", "login", "type", "edge_routing_info", "chat_dns_domain"
-                      "reason","retry_after"]
+                      "reason", "retry_after"]
 
         self.setParser(JSONResponseParser())
